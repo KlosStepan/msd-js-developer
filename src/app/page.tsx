@@ -1,25 +1,35 @@
-import React from 'react';
-import Image from "next/image";
-import styles from "./page.module.css";
+import React /*, { useState }*/ from 'react';
+//import Image from "next/image";
+//import styles from "./page.module.css";
 import 'antd/dist/reset.css';
-import { Button, Flex, Layout } from "antd";
+import { Button, ConfigProvider, Flex, Layout } from "antd";
 import { Header, Footer, Content } from "antd/lib/layout/layout"; //, Sider
+import { DownloadOutlined } from '@ant-design/icons';
+
+//Components
+import Statistic from '@/components/Statistic';
+import HeaderStatistics from '@/components/HeaderStatistics';
 
 const headerStyle: React.CSSProperties = {
   textAlign: 'left',
-  color: '#fff',
+  //color: '#fff',
+  color: 'black',
   height: 64,
   paddingInline: 48,
   lineHeight: '64px',
-  backgroundColor: '#4096ff',
+  //backgroundColor: '#4096ff',
+  backgroundColor: 'white',
 };
 
 const contentStyle: React.CSSProperties = {
   textAlign: 'center',
   flex: 1,
   overflow: 'auto',
-  color: '#fff',
-  backgroundColor: '#0958d9',
+  paddingInline: 48,
+  //color: '#fff',
+  //backgroundColor: '#0958d9',
+  color: 'black',
+  backgroundColor: 'grey',
 };
 
 const footerStyle: React.CSSProperties = {
@@ -34,17 +44,10 @@ const layoutStyle: React.CSSProperties = {
   display: 'flex',
   flexDirection: 'column',
   height: '100vh', // Ensures the layout takes the full height of the viewport
+  //backgroundColor: 'grey',
 };
 
-// Additional styles
-const pageTitleStyle: React.CSSProperties = {
-  textAlign: 'left',
-  paddingInline: 48,
-  width: '100%',
-  backgroundColor: '#0a74da',
-  padding: '10px',
-  boxSizing: 'border-box',
-};
+
 
 const boxContainerStyle: React.CSSProperties = {
   display: 'flex',
@@ -60,15 +63,16 @@ const boxStyle: React.CSSProperties = {
 };
 
 export default function Home() {
+  //const [size, setSize] = useState('large'); // default is 'middle'
   return (
     <React.Fragment>
       <Layout style={layoutStyle}>
         <Header style={headerStyle}>App title</Header>
         <Content style={contentStyle}>
-          <div style={pageTitleStyle}>Page title - |Export to PDF| |Notes (3)| |Filter v|</div>
+          <HeaderStatistics title="title123" exportBtn={false} notesBtn={false} filterBtn={false}/>
           <div style={boxContainerStyle}>
-            <div style={boxStyle}>1. part 50% width box</div>
-            <div style={boxStyle}>2. part 50% width box</div>
+            <Statistic title="Graph 1"/>
+            <Statistic title="Graph 2"/>
           </div>
         </Content>
         <Footer style={footerStyle}>Footer</Footer>
