@@ -1,4 +1,4 @@
-import React /*, { useState }*/ from 'react';
+import React , { useEffect } from 'react';
 //import Image from "next/image";
 //import styles from "./page.module.css";
 import 'antd/dist/reset.css';
@@ -75,7 +75,7 @@ export default function Home() {
             <Statistic title="Graph 2"/>
           </div>
         </Content>
-        <Footer style={footerStyle}>Footer</Footer>
+        {/*<Footer style={footerStyle}>Footer</Footer>*/}
       </Layout>
     </React.Fragment>
   );
