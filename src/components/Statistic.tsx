@@ -21,7 +21,7 @@ const data = [
     { genre: 'Other', sold: 150 },
   ];
 
-const boxStyle: React.CSSProperties = {
+/*const boxStyle: React.CSSProperties = {
     width: '48%', // Slightly less than 50% to account for spacing
     //backgroundColor: '#4caf50',
     //backgroundColor: '#f0f0f0',
@@ -29,7 +29,15 @@ const boxStyle: React.CSSProperties = {
     padding: '10px',
     boxSizing: 'border-box',
     borderRadius: '10px', // Add this line for rounded corners
-  };
+  };*/
+const boxStyle: React.CSSProperties = {
+    flex: '1 1 calc(50% - 20px)', // Flex-grow, flex-shrink, flex-basis
+    backgroundColor: 'white',
+    padding: '10px',
+    boxSizing: 'border-box',
+    borderRadius: '10px',
+    margin: '10px', // Margin to ensure spacing around the boxes
+};
 
 type StatisticProps = {
     title: string;
@@ -57,22 +65,7 @@ const Statistic: React.FC<StatisticProps> = ({ title, chartType }) => {
         <div style={boxStyle}>
             <div style={{textAlign:'left'}}>{title}</div>
             <div>&nbsp;</div>
-            {/*<Chart
-                options={{
-                    type: "interval",
-                    width: 640,
-                    height: 480,
-                    data: [
-                    { genre: "Sports", sold: 275 },
-                    { genre: "Strategy", sold: 115 },
-                    { genre: "Action", sold: 120 },
-                    { genre: "Shooter", sold: 350 },
-                    { genre: "Other", sold: 150 },
-                    ],
-                    encode: { x: "genre", y: "sold" },
-                }}
-            />*/}
-            {renderChart()}
+            <div>{renderChart()}</div>
             <div>&nbsp;</div>
             <div>-footer-</div>
         </div>

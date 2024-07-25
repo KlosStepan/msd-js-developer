@@ -55,34 +55,35 @@ const layoutStyle: React.CSSProperties = {
 
 const boxContainerStyle: React.CSSProperties = {
   display: 'flex',
-  justifyContent: 'space-between',
+  //justifyContent: 'space-between',
+  flexWrap: 'wrap',
   padding: '10px',
-};
-
-const boxStyle: React.CSSProperties = {
-  width: '48%', // Slightly less than 50% to account for spacing
-  backgroundColor: '#4caf50',
-  padding: '10px',
-  boxSizing: 'border-box',
 };
 
 export default function Home() {
   //const [size, setSize] = useState('large'); // default is 'middle'
   return (
     <React.Fragment>
+      <style type="text/css">
+        {`
+          @media (max-width: 768px) {
+              .statistic-box {
+                  flex: '1 1 100%'; // Full width on small screens
+              }
+          }
+        `}
+      </style>
       <ConfigProvider /*direction="rtl"*/>
         <Layout style={layoutStyle}>
           <Header style={headerStyle}>App title</Header>
           <Content style={contentStyle}>
             <HeaderStatistics title="Title 123" exportBtn={true} notesBtn={true} filterBtn={true}/>
             <div style={boxContainerStyle}>
-              {/*<Statistic title="Graph 1"/>
-              <Statistic title="Graph 2"/>*/}
-                          <Statistic title="Sales by Genre - Line Chart" chartType={ChartType.Line} />
-            <Statistic title="Sales by Genre - Pie Chart" chartType={ChartType.Pie} />
-            <Statistic title="Sales by Genre - Area Chart" chartType={ChartType.Area} />
-            <Statistic title="Sales by Genre - Scatter Plot" chartType={ChartType.Scatter} />
-            <Statistic title="Sales by Genre - Bar Chart" chartType={ChartType.Bar} />
+              <Statistic title="Sales by Genre - Line Chart" chartType={ChartType.Line} />
+              <Statistic title="Sales by Genre - Pie Chart" chartType={ChartType.Pie} />
+              <Statistic title="Sales by Genre - Area Chart" chartType={ChartType.Area} />
+              <Statistic title="Sales by Genre - Scatter Plot" chartType={ChartType.Scatter} />
+              <Statistic title="Sales by Genre - Bar Chart" chartType={ChartType.Bar} />
             </div>
           </Content>
           {/*<Footer style={footerStyle}>Footer</Footer>*/}
