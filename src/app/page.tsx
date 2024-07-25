@@ -64,7 +64,7 @@ export default function Home() {
   //const [size, setSize] = useState('large'); // default is 'middle'
   return (
     <React.Fragment>
-      <style type="text/css">
+      {/*<style type="text/css">
         {`
           @media (max-width: 768px) {
               .statistic-box {
@@ -72,7 +72,7 @@ export default function Home() {
               }
           }
         `}
-      </style>
+      </style>*/}
       <ConfigProvider /*direction="rtl"*/>
         <Layout style={layoutStyle}>
           <Header style={headerStyle}>App title</Header>
@@ -80,7 +80,7 @@ export default function Home() {
             <HeaderStatistics title="Title 123" exportBtn={true} notesBtn={true} filterBtn={true}/>
             <div style={boxContainerStyle}>
               <Statistic title="Sales by Genre - Line Chart" chartType={ChartType.Line} />
-              <Statistic title="Sales by Genre - Pie Chart" chartType={ChartType.Pie} />
+              {/*<Statistic title="Sales by Genre - Pie Chart" chartType={ChartType.Pie} />*/}
               <Statistic title="Sales by Genre - Area Chart" chartType={ChartType.Area} />
               <Statistic title="Sales by Genre - Scatter Plot" chartType={ChartType.Scatter} />
               <Statistic title="Sales by Genre - Bar Chart" chartType={ChartType.Bar} />

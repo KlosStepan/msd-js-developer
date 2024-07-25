@@ -12,24 +12,9 @@ import ChartArea from './ChartArea';
 import ChartScatter from './ChartScatterPlot';
 import ChartBar from './ChartBar';
 
-// A tabular data to be visualized.
-const data = [
-    { genre: 'Sports', sold: 275 },
-    { genre: 'Strategy', sold: 115 },
-    { genre: 'Action', sold: 120 },
-    { genre: 'Shooter', sold: 350 },
-    { genre: 'Other', sold: 150 },
-  ];
+//TODO fetchable
+import data from '../app/misc/data.json'; // Correct path to your JSON data
 
-/*const boxStyle: React.CSSProperties = {
-    width: '48%', // Slightly less than 50% to account for spacing
-    //backgroundColor: '#4caf50',
-    //backgroundColor: '#f0f0f0',
-    backgroundColor:'white',
-    padding: '10px',
-    boxSizing: 'border-box',
-    borderRadius: '10px', // Add this line for rounded corners
-  };*/
 const boxStyle: React.CSSProperties = {
     flex: '1 1 calc(50% - 20px)', // Flex-grow, flex-shrink, flex-basis
     backgroundColor: 'white',
@@ -48,7 +33,7 @@ const Statistic: React.FC<StatisticProps> = ({ title, chartType }) => {
     const renderChart = () => {
         switch (chartType) {
             case ChartType.Line:
-                return <ChartLine />;
+                return <ChartLine data={data} />;
             case ChartType.Pie:
                 return <ChartPie />;
             case ChartType.Area:
