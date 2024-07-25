@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ant-design/colors": "^7.1.0",
     "@ant-design/icons": "^5.3.7",
     "@antv/g2": "^5.2.1",
     "@berryv/g2-react": "^0.1.0",

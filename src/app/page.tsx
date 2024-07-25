@@ -2,9 +2,13 @@ import React , { useEffect } from 'react';
 //import Image from "next/image";
 //import styles from "./page.module.css";
 import 'antd/dist/reset.css';
+
 import { Button, ConfigProvider, Flex, Layout } from "antd";
 import { Header, Footer, Content } from "antd/lib/layout/layout"; //, Sider
 import { DownloadOutlined } from '@ant-design/icons';
+import { blue } from '@ant-design/colors';
+import { ChartType } from './misc/ChartType';
+
 
 //Components
 import Statistic from '@/components/Statistic';
@@ -29,7 +33,7 @@ const contentStyle: React.CSSProperties = {
   //color: '#fff',
   //backgroundColor: '#0958d9',
   color: 'black',
-  backgroundColor: 'grey',
+  backgroundColor: '#D3D3D3',
 };
 
 const footerStyle: React.CSSProperties = {
@@ -66,17 +70,24 @@ export default function Home() {
   //const [size, setSize] = useState('large'); // default is 'middle'
   return (
     <React.Fragment>
-      <Layout style={layoutStyle}>
-        <Header style={headerStyle}>App title</Header>
-        <Content style={contentStyle}>
-          <HeaderStatistics title="title123" exportBtn={false} notesBtn={false} filterBtn={false}/>
-          <div style={boxContainerStyle}>
-            <Statistic title="Graph 1"/>
-            <Statistic title="Graph 2"/>
-          </div>
-        </Content>
-        {/*<Footer style={footerStyle}>Footer</Footer>*/}
-      </Layout>
+      <ConfigProvider /*direction="rtl"*/>
+        <Layout style={layoutStyle}>
+          <Header style={headerStyle}>App title</Header>
+          <Content style={contentStyle}>
+            <HeaderStatistics title="Title 123" exportBtn={true} notesBtn={true} filterBtn={true}/>
+            <div style={boxContainerStyle}>
+              {/*<Statistic title="Graph 1"/>
+              <Statistic title="Graph 2"/>*/}
+                          <Statistic title="Sales by Genre - Line Chart" chartType={ChartType.Line} />
+            <Statistic title="Sales by Genre - Pie Chart" chartType={ChartType.Pie} />
+            <Statistic title="Sales by Genre - Area Chart" chartType={ChartType.Area} />
+            <Statistic title="Sales by Genre - Scatter Plot" chartType={ChartType.Scatter} />
+            <Statistic title="Sales by Genre - Bar Chart" chartType={ChartType.Bar} />
+            </div>
+          </Content>
+          {/*<Footer style={footerStyle}>Footer</Footer>*/}
+        </Layout>
+      </ConfigProvider>
     </React.Fragment>
   );
 }

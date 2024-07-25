@@ -1,7 +1,16 @@
 "use client"; // This is a client component 👈🏽
 
 import React from 'react';
+//maybe wrapper of VanillaJS stuff
 import { Chart } from "@berryv/g2-react";
+
+import { ChartType } from '../app/misc/ChartType'; // Correct import
+
+import ChartLine from './ChartLine';
+import ChartPie from './ChartPie';
+import ChartArea from './ChartArea';
+import ChartScatter from './ChartScatterPlot';
+import ChartBar from './ChartBar';
 
 // A tabular data to be visualized.
 const data = [
@@ -14,21 +23,41 @@ const data = [
 
 const boxStyle: React.CSSProperties = {
     width: '48%', // Slightly less than 50% to account for spacing
-    backgroundColor: '#4caf50',
+    //backgroundColor: '#4caf50',
+    //backgroundColor: '#f0f0f0',
+    backgroundColor:'white',
     padding: '10px',
     boxSizing: 'border-box',
+    borderRadius: '10px', // Add this line for rounded corners
   };
 
 type StatisticProps = {
     title: string;
+    chartType: ChartType;
 }
 
-const Statistic: React.FC<StatisticProps> = ({ title }) => {
+const Statistic: React.FC<StatisticProps> = ({ title, chartType }) => {
+    const renderChart = () => {
+        switch (chartType) {
+            case ChartType.Line:
+                return <ChartLine />;
+            case ChartType.Pie:
+                return <ChartPie />;
+            case ChartType.Area:
+                return <ChartArea />;
+            case ChartType.Scatter:
+                return <ChartScatter />;
+            case ChartType.Bar:
+                return <ChartBar />;
+            default:
+                return null;
+        }
+    }
     return(
         <div style={boxStyle}>
-            <div>{title}</div>
-            <div>_____</div>
-            <Chart
+            <div style={{textAlign:'left'}}>{title}</div>
+            <div>&nbsp;</div>
+            {/*<Chart
                 options={{
                     type: "interval",
                     width: 640,
@@ -42,8 +71,9 @@ const Statistic: React.FC<StatisticProps> = ({ title }) => {
                     ],
                     encode: { x: "genre", y: "sold" },
                 }}
-            />
-            <div>_____</div>
+            />*/}
+            {renderChart()}
+            <div>&nbsp;</div>
             <div>-footer-</div>
         </div>
     )
