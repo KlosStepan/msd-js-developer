@@ -1,4 +1,5 @@
-import React , { useEffect } from 'react';
+"use client"; // This is a client component 👈🏽
+import React , { useEffect, useState } from 'react';
 //import Image from "next/image";
 //import styles from "./page.module.css";
 import 'antd/dist/reset.css';
@@ -9,10 +10,17 @@ import { DownloadOutlined } from '@ant-design/icons';
 import { blue } from '@ant-design/colors';
 import { ChartType } from './misc/ChartType';
 
+import { DataObject1 } from '../app/misc/Interfaces';
 
 //Components
 import Statistic from '@/components/Statistic';
 import HeaderStatistics from '@/components/HeaderStatistics';
+
+// Imports of data - will be fetced
+import data1 from '../app/misc/ukhsa-data1.json'; // Correct path to your JSON data
+//import data2
+//import data3
+//import data4
 
 const headerStyle: React.CSSProperties = {
   textAlign: 'left',
@@ -62,28 +70,27 @@ const boxContainerStyle: React.CSSProperties = {
 
 export default function Home() {
   //const [size, setSize] = useState('large'); // default is 'middle'
+  const [dataLineChart, setDataLineChart] = useState<DataObject1[]>([]);
+  useEffect(() => {
+    //TODO fetch data1
+    setDataLineChart(data1);
+    //Promise - wait for all 4
+  }, [])
+  
   return (
     <React.Fragment>
-      {/*<style type="text/css">
-        {`
-          @media (max-width: 768px) {
-              .statistic-box {
-                  flex: '1 1 100%'; // Full width on small screens
-              }
-          }
-        `}
-      </style>*/}
       <ConfigProvider /*direction="rtl"*/>
         <Layout style={layoutStyle}>
           <Header style={headerStyle}>App title</Header>
           <Content style={contentStyle}>
             <HeaderStatistics title="Title 123" exportBtn={true} notesBtn={true} filterBtn={true}/>
             <div style={boxContainerStyle}>
-              <Statistic title="Sales by Genre - Line Chart" chartType={ChartType.Line} />
-              {/*<Statistic title="Sales by Genre - Pie Chart" chartType={ChartType.Pie} />*/}
-              <Statistic title="Sales by Genre - Area Chart" chartType={ChartType.Area} />
-              <Statistic title="Sales by Genre - Scatter Plot" chartType={ChartType.Scatter} />
-              <Statistic title="Sales by Genre - Bar Chart" chartType={ChartType.Bar} />
+              {/*Line ch1*/}
+              <Statistic title="Testing" caption="The percentage of people who had a PCR test and had at least one positive PCR test result for RSV in the same 7 days. Data is shown for England by specimen date (the date the sample was collected) and UKHSA Region." date="5. ledna" chartType={ChartType.Line} data={dataLineChart} />
+              {/* <Statistic title="Sales by Genre - Pie Chart" caption="asd" chartType={ChartType.Pie} data={[]} /> */}
+              <Statistic title="Dummy graph" caption="Sales by Genre - Area Chart"  date="5. ledna" chartType={ChartType.Area} data={[]} />
+              <Statistic title="Dummy graph" caption="Sales by Genre - Scatter Plot" date="5. ledna" chartType={ChartType.Scatter} data={[]} />
+              <Statistic title="Dummy graph" caption="Sales by Genre - Bar Chart"  date="5. ledna" chartType={ChartType.Bar} data={[]} />
             </div>
           </Content>
           {/*<Footer style={footerStyle}>Footer</Footer>*/}

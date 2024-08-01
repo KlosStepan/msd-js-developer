@@ -10,8 +10,7 @@ const ChartPie: React.FC<ChartPieProps> = ({ }) => {
     return (
         <Chart
             options={{
-                type: "interval",
-                coordinate: { type: "theta" },
+                type: "pie", // Assuming 'pie' is the correct type for a pie chart
                 width: 640,
                 height: 480,
                 data: [
@@ -21,7 +20,11 @@ const ChartPie: React.FC<ChartPieProps> = ({ }) => {
                     { genre: "Shooter", sold: 350 },
                     { genre: "Other", sold: 150 },
                 ],
-                encode: { /*theta: "sold",*/ color: "genre" },
+                encode: {
+                    //theta: "sold", // Ensure this is the correct key for theta
+                    color: "genre"
+                },
+                // Add any additional configuration options as needed
             }}
         />
     );

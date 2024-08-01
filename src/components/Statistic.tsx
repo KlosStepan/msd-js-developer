@@ -1,6 +1,6 @@
 "use client"; // This is a client component 👈🏽
 
-import React from 'react';
+import React, {useState} from 'react';
 //maybe wrapper of VanillaJS stuff
 import { Chart } from "@berryv/g2-react";
 
@@ -12,8 +12,10 @@ import ChartArea from './ChartArea';
 import ChartScatter from './ChartScatterPlot';
 import ChartBar from './ChartBar';
 
+import { DataObject1 } from '../app/misc/Interfaces';
+
 //TODO fetchable
-//import data from '../app/misc/data.json'; // Correct path to your JSON data
+//import data1 from '../app/misc/ukhsa-data1.json'; // Correct path to your JSON data
 
 const boxStyle: React.CSSProperties = {
     flex: '1 1 calc(50% - 20px)', // Flex-grow, flex-shrink, flex-basis
@@ -26,29 +28,35 @@ const boxStyle: React.CSSProperties = {
 
 type StatisticProps = {
     title: string;
+    caption: string;
+    date: string;
     chartType: ChartType;
+    data: DataObject1[] | any[];
 }
 
-const Statistic: React.FC<StatisticProps> = ({ title, chartType }) => {
+const Statistic: React.FC<StatisticProps> = ({ title, caption, date, chartType, data }) => {
     const renderChart = () => {
-        switch (chartType) {
+        switch (chartType) { 
             case ChartType.Line:
-                return <ChartLine data={null} />;
+                return <ChartLine data={data} />;
             case ChartType.Pie:
-                return <ChartPie />;
+                return <ChartPie /*data={data}*/ />;
             case ChartType.Area:
-                return <ChartArea />;
+                return <ChartArea /*data={data}*/ />;
             case ChartType.Scatter:
-                return <ChartScatter />;
+                return <ChartScatter /*data={data}*/ />;
             case ChartType.Bar:
-                return <ChartBar />;
+                return <ChartBar /*data={data}*/ />;
             default:
                 return null;
         }
     }
     return(
         <div style={boxStyle}>
-            <div style={{textAlign:'left'}}>{title}</div>
+            <h1 style={{textAlign:'left'}}>{title}</h1>
+            <div style={{textAlign:'justify'}}>{caption}</div>
+            <div>&nbsp;</div>
+            <div style={{textAlign:'justify'}}>Up to and including {date}</div>
             <div>&nbsp;</div>
             <div>{renderChart()}</div>
             <div>&nbsp;</div>
