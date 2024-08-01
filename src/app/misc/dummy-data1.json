@@ -1,0 +1,41 @@
+[{
+    "date": 202401,
+    "value": 10,
+    "city": "Prague" 
+},
+{
+    "date": 202402,
+    "value": 11,
+    "city": "Prague" 
+},
+{
+    "date": 202403,
+    "value": 7,
+    "city": "Prague" 
+},
+{
+    "date": 202404,
+    "value": 9,
+    "city": "Prague" 
+},
+{
+    "date": 202401,
+    "value": 7,
+    "city": "London" 
+},
+{
+    "date": 202402,
+    "value": 8,
+    "city": "London" 
+},
+{
+    "date": 202403,
+    "value": 9,
+    "city": "London" 
+},
+{
+    "date": 202404,
+    "value": 10,
+    "city": "London" 
+}
+]

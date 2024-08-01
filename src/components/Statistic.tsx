@@ -13,7 +13,7 @@ import ChartScatter from './ChartScatterPlot';
 import ChartBar from './ChartBar';
 
 //TODO fetchable
-import data from '../app/misc/data.json'; // Correct path to your JSON data
+//import data from '../app/misc/data.json'; // Correct path to your JSON data
 
 const boxStyle: React.CSSProperties = {
     flex: '1 1 calc(50% - 20px)', // Flex-grow, flex-shrink, flex-basis
@@ -33,7 +33,7 @@ const Statistic: React.FC<StatisticProps> = ({ title, chartType }) => {
     const renderChart = () => {
         switch (chartType) {
             case ChartType.Line:
-                return <ChartLine data={data} />;
+                return <ChartLine data={null} />;
             case ChartType.Pie:
                 return <ChartPie />;
             case ChartType.Area:
@@ -52,7 +52,7 @@ const Statistic: React.FC<StatisticProps> = ({ title, chartType }) => {
             <div>&nbsp;</div>
             <div>{renderChart()}</div>
             <div>&nbsp;</div>
-            <div>-footer-</div>
+            {/*<div>-footer-</div>*/}
         </div>
     )
 }
