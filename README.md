@@ -20,10 +20,9 @@ If I was extending this project, I would implement following:
 
 ## Other Discussion
 - BUSINESS LOGIC - `|Export| |Notes| |Filter|` was not integrated - I did extensive Frontend (React.js) logic - `filtering`, `downloading`, `data pipelining` in my previous job at govt. Application visitable here: [https://m17.rvvi.cz/m2/application-m2/](https://m17.rvvi.cz/m2/application-m2/)
-- REMOTE PROCEDURE CALLS - `tRPC` <u>was also not</u> integrated - I have experience implementing E2E features using `gRPC` ft. `Protocol Buffers` for Frontend(JavaScript)<->Backend(Go) communication.
-- BACKEND - dummy one only. I did use PHP (ft. MySQL), Go (ft. Mongo) and Node.js (ft. OracleDB). Some stuff here: [http://blog.stkl.cz/2-oracledb-nodejs/](http://blog.stkl.cz/2-oracledb-nodejs/)
+- REMOTE PROCEDURE CALLS - `tRPC` <u>was also not</u> integrated - but I have experience implementing E2E features using `gRPC` ft. `Protocol Buffers` for Frontend(JavaScript)<->Backend(Go) communication.
 
-## Run It
+## Run Locally
 
 Run application by using these commands
 
@@ -33,26 +32,3 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
-
-## Misc
-- import problem https://medium.com/@fdikmen/fixing-could-not-find-the-module-error-in-nextjs-with-ant-design-3ae2cfe0160d
