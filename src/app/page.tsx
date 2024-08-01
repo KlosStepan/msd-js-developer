@@ -86,11 +86,11 @@ export default function Home() {
             <HeaderStatistics title="Title 123" exportBtn={true} notesBtn={true} filterBtn={true}/>
             <div style={boxContainerStyle}>
               {/*Line ch1*/}
-              <Statistic title="Testing" caption="The percentage of people who had a PCR test and had at least one positive PCR test result for RSV in the same 7 days. Data is shown for England by specimen date (the date the sample was collected) and UKHSA Region." date="5. ledna" chartType={ChartType.Line} data={dataLineChart} />
-              {/* <Statistic title="Sales by Genre - Pie Chart" caption="asd" chartType={ChartType.Pie} data={[]} /> */}
-              <Statistic title="Dummy graph" caption="Sales by Genre - Area Chart"  date="5. ledna" chartType={ChartType.Area} data={[]} />
-              <Statistic title="Dummy graph" caption="Sales by Genre - Scatter Plot" date="5. ledna" chartType={ChartType.Scatter} data={[]} />
-              <Statistic title="Dummy graph" caption="Sales by Genre - Bar Chart"  date="5. ledna" chartType={ChartType.Bar} data={[]} />
+              <Statistic title="Testing" caption="The percentage of people who had a PCR test and had at least one positive PCR test result for RSV in the same 7 days. Data is shown for England by specimen date (the date the sample was collected) and UKHSA Region." date="8 July 2024" chartType={ChartType.Line} data={dataLineChart} />
+              {/* <Statistic title="Sales by Genre - Pie Chart" caption="Asd" date="5 January 2024" chartType={ChartType.Pie} data={[]} /> */}
+              <Statistic title="Dummy graph" caption="Sales by Genre - Area Chart"  date="5 January 2024" chartType={ChartType.Area} data={[]} />
+              <Statistic title="Dummy graph" caption="Sales by Genre - Scatter Plot" date="5 January 2024" chartType={ChartType.Scatter} data={[]} />
+              <Statistic title="Dummy graph" caption="Sales by Genre - Bar Chart"  date="5 January 2024" chartType={ChartType.Bar} data={[]} />
             </div>
           </Content>
           {/*<Footer style={footerStyle}>Footer</Footer>*/}

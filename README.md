@@ -1,5 +1,7 @@
 # MSD JavaScript Developer
-Skeleton, structure (& dummy functionality) of stuff I consider important and extensible in future was created.  
+Skeleton, structure (& dummy functionality) of stuff I consider important and extensible in future.  
+
+-> [https://msd-js-developer.vercel.app/](https://msd-js-developer.vercel.app/)
 ## Features
 We use `TypeScript`, `Ant Design (& Icons)` and `AntV|G2`.  
 
@@ -9,12 +11,17 @@ I used `@berryv/g2-react` - defacto standard of `AntV|G2` wrapper for React.
 
 `Responsive design` was important so `Menu` and `Statistic` (boxes with charts) break correctly and are usable on phone.  
 
-## Roadmap
+## Roadmap + Discussion
 If I was extending this project, I would implement following:  
 - Parametrize the rest of graph components `<ChartArea .../>`, `<ChartBar .../>`, `<ChartPie .../>`, `<ChartScatterPlot .../>` thoroughly.
 - Implement wrapper for original VanillaJS `AntV|G2` via useRef() - since `@berryv/g2-react` might not include all options that we might need in future for our business logic.  
 - Improve styling - colors, "standard palette" (ala `createTheme{( ... )}` in MUI - [blog.stkl.cz/11-material-ui-custom-fonts/](http://blog.stkl.cz/11-material-ui-custom-fonts/) - see `screenshot` in the article)
 - Re-implement backend calls via. tRPC (instead of `fetch` of HTTP REST) - for our backend needs. 
+
+## Other Discussion
+- BUSINESS LOGIC - `|Export| |Notes| |Filter|` was not integrated - I did extensive Frontend (React.js) logic - `filtering`, `downloading`, `data pipelining` in my previous job at govt. Application visitable here: [https://m17.rvvi.cz/m2/application-m2/](https://m17.rvvi.cz/m2/application-m2/)
+- REMOTE PROCEDURE CALLS - `tRPC` <u>was also not</u> integrated - I have experience implementing E2E features using `gRPC` ft. `Protocol Buffers` for Frontend(JavaScript)<->Backend(Go) communication.
+- BACKEND - dummy one only. I did use PHP (ft. MySQL), Go (ft. Mongo) and Node.js (ft. OracleDB). Some stuff here: [http://blog.stkl.cz/2-oracledb-nodejs/](http://blog.stkl.cz/2-oracledb-nodejs/)
 
 ## Run It
 
